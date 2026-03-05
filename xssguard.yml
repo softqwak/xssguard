@@ -1,0 +1,14 @@
+output:
+  color: true
+  format: console
+  verbose: false
+scan:
+  exclude_paths:
+  - vendor/**
+  - node_modules/**
+  file_extensions:
+  - .php
+  - .js
+  - .html
+  - .phtml
+  threads: 4
