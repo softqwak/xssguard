@@ -23,3 +23,5 @@ build/
 reports/
 *.log
 .DS_Store
+
+site/
