@@ -1,0 +1,148 @@
+# Имя сайта (будет в заголовке)
+site_name: XSSGuard
+site_description: Статический анализатор для поиска XSS-уязвимостей
+site_author: Валентин Кузичев
+site_url: https://softqwak.github.io/xssguard
+
+# Репозиторий (чтобы была ссылка "Edit on GitHub")
+repo_name: softqwak/xssguard
+repo_url: https://github.com/softqwak/xssguard
+edit_uri: edit/main/docs/
+
+# Настройки темы (Material - самая популярная)
+theme:
+  name: material
+  language: ru  # Русский язык интерфейса
+  
+  # Цветовая схема
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
+  # Иконки
+  icon:
+    logo: material/shield-search
+    repo: fontawesome/brands/github
+  
+  # Дополнительные возможности
+  features:
+    - navigation.tabs      # Вкладки навигации сверху
+    - navigation.sections  # Секции в боковой панели
+    - navigation.expand    # Раскрытые разделы
+    - navigation.top       # Кнопка "Наверх"
+    - search.suggest       # Поиск с подсказками
+    - search.highlight     # Подсветка результатов
+    - content.tabs.link    # Связанные вкладки
+    - content.code.copy    # Кнопка копирования кода
+    - content.code.annotate # Аннотации кода
+
+# Дополнительные стили и скрипты
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - javascript/extra.js
+
+# Настройки поиска
+plugins:
+  - search:
+      lang: ru
+  - git-revision-date-localized:  # Показывает дату последнего изменения
+      enable_creation_date: true
+  - minify:  # Минификация HTML/JS/CSS
+      minify_html: true
+
+# Расширения Markdown
+markdown_extensions:
+  # Подсветка кода
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  
+  # Таблицы
+  - tables
+  
+  # Примечания (admonitions)
+  - admonition
+  - pymdownx.details
+  
+  # Вкладки с кодом
+  - pymdownx.tabbed:
+      alternate_style: true
+  
+  # Смайлики
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  
+  # Оглавление
+  - toc:
+      permalink: "#"
+      toc_depth: 3
+
+# Навигация по сайту (меню)
+nav:
+  - Главная: index.md
+  - Начало работы:
+    - Установка: getting-started/installation.md
+    - Быстрый старт: getting-started/quickstart.md
+    - Первый запуск: getting-started/first-run.md
+  - Руководство пользователя:
+    - Команды CLI: user-guide/commands.md
+    - Конфигурация: user-guide/configuration.md
+    - Понимание результатов: user-guide/results.md
+    - Примеры: user-guide/examples.md
+  - Разработчикам:
+    - Архитектура: development/architecture.md
+    - Создание плагинов: development/plugins.md
+    - Тестирование: development/testing.md
+    - Сборка: development/building.md
+  - API Reference:
+    - Модели: api/models.md
+    - Ядро: api/core.md
+    - Утилиты: api/utils.md
+  - О проекте:
+    - О XSSGuard: about/about.md
+    - Лицензия: about/license.md
+    - Участие: about/contributing.md
+    - История изменений: about/changelog.md
+
+# Дополнительные настройки
+extra:
+  social:  # Социальные сети
+    - icon: fontawesome/brands/github
+      link: https://github.com/softqwak
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/chuchaoctapopulus
+  
+  # Версия
+  version:
+    provider: mike
+    default: latest
+    
+  # Контакты для обратной связи
+  feedback:
+    title: Была ли эта страница полезной?
+    ratings:
+      - icon: material/emoticon-happy-outline
+        name: Помогла
+        data: 1
+        note: Спасибо за отзыв!
+      - icon: material/emoticon-sad-outline
+        name: Не помогла
+        data: 0
+        note: Спасибо за отзыв! Мы постараемся улучшить документацию.
+
+# Копирайт
+copyright: Copyright &copy; 2024 Valentin
