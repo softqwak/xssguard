@@ -1,14 +1,97 @@
-output:
-  color: true
-  format: console
-  verbose: false
+# Общие настройки сканирования
 scan:
   exclude_paths:
-  - vendor/**
-  - node_modules/**
+    - vendor/**
+    - node_modules/**
+    - tests/**
+    - '*.min.js'
+    - '*.min.css'
   file_extensions:
-  - .php
-  - .js
-  - .html
-  - .phtml
+    - .php
+    - .js
+    - .html
+    - .phtml
+  max_file_size: 5242880
   threads: 4
+  follow_symlinks: false
+  timeout: 30
+
+# Настройки вывода
+output:
+  format: console
+  verbose: false
+  show_info: true
+  show_warnings: true
+  show_progress: true
+  color: true
+
+# Настройки для логирования
+logging:
+  enabled: true
+  directory: "logs"
+  level: "DEBUG"
+  max_file_size: 10485760  # 10MB
+  backup_count: 5
+  format: "detailed"  # simple или detailed
+
+# Настройки для PHP
+php:
+  sources:
+    - $_GET
+    - $_POST
+    - $_REQUEST
+    - $_COOKIE
+    - $_FILES
+  sinks:
+    - echo
+    - print
+    - printf
+    - vprintf
+    - <?=
+  sanitizers:
+    - htmlspecialchars
+    - htmlentities
+    - strip_tags
+    - filter_var
+  user_input_functions: []
+  options:
+    track_array_elements: true
+    track_object_properties: false
+    max_call_depth: 3
+    analyze_includes: false
+    case_sensitive: true
+
+# Заготовка для JavaScript
+javascript:
+  sources:
+    - window.location
+    - document.URL
+    - location.hash
+    - document.referrer
+    - localStorage
+    - sessionStorage
+  sinks:
+    - innerHTML
+    - outerHTML
+    - document.write
+    - eval
+  sanitizers:
+    - textContent
+    - encodeURI
+    - encodeURIComponent
+  options: {}
+
+# Заготовка для HTML
+html:
+  dangerous_attributes:
+    - onload
+    - onerror
+    - onclick
+    - onmouseover
+    - onfocus
+  dangerous_tags:
+    - script
+    - iframe
+    - object
+    - embed
+  options: {}
